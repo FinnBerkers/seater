@@ -1,0 +1,7 @@
+{% if people_list %}
+    <ul>
+    {% for person in people_list %}
+        <li>{{ person.first_name }} {{ person.last_name }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
