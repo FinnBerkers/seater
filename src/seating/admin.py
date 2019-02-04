@@ -28,6 +28,7 @@ class FamilyAdmin(admin.ModelAdmin):
             super(FamilyAdmin, self).save_model(request, obj, form, change)
         else:
             obj.save_family_restrictions()
+            super(FamilyAdmin, self).save_model(request, obj, form, change)
 
     def save_related(self, request, form, formsets, change):
         """
