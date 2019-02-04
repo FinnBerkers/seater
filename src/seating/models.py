@@ -7,6 +7,13 @@ class Family(models.Model):
     def __str__(self):
         return self.name
 
+    def save_family_restrictions(self):
+        """Add the all the inter-familiar forbidden neighbors."""
+        members = Person.objects.all().filter(family=self)
+        for member in members:
+            member.forbidden_neighbors.add(*members)
+            member.save()
+
 
 class Person(models.Model):
     first_name = models.CharField(max_length=100)
